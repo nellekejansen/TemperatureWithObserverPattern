@@ -17,12 +17,12 @@ public class WeatherStation implements Observable {
     }
 
     @Override
-    public void addObserver(Observer observer) {
+    public void subscribe(Observer observer) {
         observers.add(observer);
     }
 
     @Override
-    public void removeObserver(Observer observer) {
+    public void unsubscribe(Observer observer) {
         observers.remove(observer);
     }
 
@@ -33,7 +33,7 @@ public class WeatherStation implements Observable {
         }
     }
 
-    public void setTemperature(double temperature) {
+    public void publishTemperature(double temperature) {
         this.temperature = temperature;
         notifyObservers();
     }

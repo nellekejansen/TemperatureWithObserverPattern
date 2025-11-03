@@ -5,7 +5,7 @@ package model;
  * Interface for the Observable
  */
 public interface Observable {
-    void addObserver(Observer observer);
-    void removeObserver(Observer observer);
+    void subscribe(Observer observer);
+    void unsubscribe(Observer observer);
     void notifyObservers();
 }

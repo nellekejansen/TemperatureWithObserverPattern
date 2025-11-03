@@ -5,7 +5,6 @@ import model.TemperatureStatus;
 import model.Thermometer;
 import model.WeatherStation;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 /**
@@ -17,22 +16,21 @@ public class TemperatureController {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        WeatherStation weatherStation = new WeatherStation();
+        WeatherStation weatherStation = new WeatherStation(); //                            <---- Create Observable
 
         TemperatureStatus temperatureStatus = new TemperatureStatus();
-        weatherStation.addObserver(temperatureStatus);
-
-        Thermometer thermometer = new Thermometer();
-        weatherStation.addObserver(thermometer);
-
+        Thermometer thermometer = new Thermometer(); //                                     <---- Create Observers
         CoatAdvisor coatAdvisor = new CoatAdvisor();
-        weatherStation.addObserver(coatAdvisor);
+
+        weatherStation.subscribe(temperatureStatus);
+        weatherStation.subscribe(thermometer); //                              <---- Subscribe Observers to Observable
+        weatherStation.subscribe(coatAdvisor);
 
         while (true) {
             System.out.print("Wat is de nieuwe temperatuur? ");
             double temperature = scanner.nextDouble();
             System.out.println("---- [Weerstation krijgt de nieuwe temperatuur] ----");
-            weatherStation.setTemperature(temperature);
+            weatherStation.publishTemperature(temperature); //                              <---- Publish new value
             System.out.println("---- [Update is klaar] ----");
             System.out.println();
         }
