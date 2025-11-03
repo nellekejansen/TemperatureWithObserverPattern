@@ -1,5 +1,6 @@
 package controller;
 
+import model.CoatAdvisor;
 import model.TemperatureStatus;
 import model.WeatherStation;
 
@@ -16,8 +17,12 @@ public class TemperatureController {
         Scanner scanner = new Scanner(System.in);
 
         WeatherStation weatherStation = new WeatherStation();
+
         TemperatureStatus temperatureStatus = new TemperatureStatus();
         weatherStation.addObserver(temperatureStatus);
+
+        CoatAdvisor coatAdvisor = new CoatAdvisor();
+        weatherStation.addObserver(coatAdvisor);
 
         while (true) {
             System.out.print("Wat is de nieuwe temperatuur? ");
