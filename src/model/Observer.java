@@ -2,7 +2,8 @@ package model;
 
 /**
  * @author Nelleke Jansen
- * Purpose for the class
+ * Interface for Observers
  */
 public interface Observer {
+    void update(double temperature);
 }

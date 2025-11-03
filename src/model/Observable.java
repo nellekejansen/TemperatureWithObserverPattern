@@ -2,7 +2,10 @@ package model;
 
 /**
  * @author Nelleke Jansen
- * Purpose for the class
+ * Interface for the Observable
  */
 public interface Observable {
+    void addObserver(Observer observer);
+    void removeObserver(Observer observer);
+    void notifyObservers();
 }
