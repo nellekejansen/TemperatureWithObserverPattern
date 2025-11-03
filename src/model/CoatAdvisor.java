@@ -14,6 +14,7 @@ public class CoatAdvisor implements Observer {
     }
 
     private void display() {
+        System.out.print("Jassenadvies: ");
         if (this.temperature < 5) {
             System.out.println("Trek een warme jas aan, het is heel koud!");
         } else if (this.temperature < 15) {
@@ -23,5 +24,6 @@ public class CoatAdvisor implements Observer {
         } else {
             System.out.println("Je hebt geen jas nodig, het is warm buiten!");
         }
+        System.out.println();
     }
 }

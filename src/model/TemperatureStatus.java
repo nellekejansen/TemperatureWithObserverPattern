@@ -14,6 +14,7 @@ public class TemperatureStatus implements Observer {
     }
 
     public void display() {
-        System.out.printf("De temperatuur is nu: %.1f\n", this.temperature);
+        System.out.printf("Temperatuur status: de temperatuur is nu: %.1f\n", this.temperature);
+        System.out.println();
     }
 }
